@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valorant | Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Create a Riot account.">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <a href="index.html" style="display: flex; align-items: center; gap: 1rem;">
+                <img src="logo.jpeg" alt="Valorant Logo">
+                <span>VALORANT</span>
+            </a>
+        </div>
+        <div class="nav-auth">
+            <a href="signin.html" class="btn btn-outline">Sign In</a>
+        </div>
+    </nav>
+
+    <div class="auth-container">
+        <div class="auth-box">
+            <h2 class="auth-title">Sign Up</h2>
+            <form action="#" method="POST" onsubmit="event.preventDefault(); window.location.href='index.html';">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="username">Username / Riot ID</label>
+                    <input type="text" id="username" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Free To Play</button>
+                <div class="auth-links">
+                    <p>Already have an account? <a href="signin.html">Sign In here</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,2 @@
+(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[130],{8586:(_,n,r)=>{"use strict";r.r(n),r.d(n,{__N_SSG:()=>s,default:()=>t});var u=r(37876);r(14232);var e=r(21553),s=!0;function t(_){return(0,u.jsx)(e.Q,{..._})}},55320:(_,n,r)=>{(window.__NEXT_P=window.__NEXT_P||[]).push(["/[[...pathArray]]",function(){return r(8586)}])}},_=>{_.O(0,[679,116,400,243,636,593,792],()=>_(_.s=55320)),_N_E=_.O()}]);
+//# sourceMappingURL=[[...pathArray]]-5ab3ec9789779be9.js.map
