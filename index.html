@@ -12,12 +12,12 @@
 
 <body>
     <header style="width: 100%; display: flex; flex-direction: column;">
-        <div style="position: relative; width: 100%; overflow: hidden;">
+        <div id="index-hero" style="position: relative; width: 100%; overflow: hidden; height: 80vh;">
             <img src="BG.avif" alt="Valorant Split Banner"
-                style="width: 100%; height: auto; display: block; object-fit: cover;">
+                style="width: 100%; height: 100%; position: absolute; display: block; object-fit: cover;">
             <img src="2.avif" alt="Astra Full Art"
-                style="position: absolute; right: 65%; bottom: 15%; height: 80%; z-index: 3; object-fit: contain;">
-            <img src="logo.jpeg" alt="Astra Full Art"
+                style="position: absolute; right: 65%; bottom: 15%; height: 80%; z-index: 6; object-fit: contain;">
+            <img src="logo.jpeg" alt="Valorant Logo"
                 style="position: absolute; right: 76%; bottom: 87%; height: 9%; z-index: 3; object-fit: contain;">
 
             <!-- Vertical Navigation Carousel -->
@@ -134,6 +134,55 @@
                     transform: scale(1.1) translateY(-15px) !important;
                     filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.5));
                 }
+
+                /* Mobile Responsive Adjustments */
+                @media (max-width: 768px) {
+                    .nav-v-carousel {
+                        width: 100% !important;
+                        height: 45% !important;
+                        top: auto !important;
+                        bottom: 0 !important;
+                        background: linear-gradient(0deg, rgba(15, 25, 35, 0.9) 0%, rgba(15, 25, 35, 0) 100%) !important;
+                    }
+
+                    .nav-v-item {
+                        font-size: 1.5rem !important;
+                        transform: scale(0.8) translateX(0) !important;
+                    }
+
+                    .nav-v-item.active {
+                        transform: scale(1.2) translateX(0) !important;
+                    }
+
+                    .text-carousel {
+                        width: 100% !important;
+                        height: 40% !important;
+                        padding: 0 10% !important;
+                    }
+
+                    .carousel-item {
+                        flex: 0 0 60% !important;
+                    }
+
+                    img[alt="Astra Full Art"] {
+                        right: 50% !important;
+                        transform: translateX(50%) !important;
+                        height: 55% !important;
+                        bottom: 25% !important;
+                    }
+
+                    img[alt="Valorant Logo"] {
+                        right: 5% !important;
+                        bottom: auto !important;
+                        top: 5% !important;
+                        height: 5% !important;
+                        transform: none !important;
+                    }
+
+                    #index-hero {
+                        height: 100vh !important;
+                    }
+                }
             </style>
 
             <script>
@@ -232,4 +281,5 @@
             and/or registered trademarks of Riot Games, Inc.</p>
     </footer>
 </body>
+
 </html>
