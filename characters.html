@@ -7,6 +7,64 @@
     <title>Valorant | Characters</title>
     <link rel="stylesheet" href="style.css">
     <meta name="description" content="Meet the Agents of Valorant.">
+    <style>
+        @media (max-width: 768px) {
+            #hero-container {
+                display: flex !important;
+                flex-direction: column !important;
+            }
+
+            #agent-art-wrapper {
+                position: relative !important;
+                width: 100% !important;
+                height: 50vh !important;
+                order: -1 !important;
+                background-color: #0f1923 !important;
+                overflow: hidden !important;
+            }
+
+            #agent-full-art {
+                height: 90% !important;
+                right: 50% !important;
+                bottom: 0 !important;
+                transform: translateX(50%) !important;
+                opacity: 1 !important;
+            }
+
+            #agent-bg-text {
+                width: 100% !important;
+                height: 100% !important;
+                object-fit: cover !important;
+                opacity: 0.2 !important;
+            }
+
+            #agent-role {
+                display: none !important;
+            }
+
+            #char-top,
+            #char-bottom {
+                padding: 2rem 1.5rem !important;
+                background-color: #0f1923 !important;
+            }
+
+            #agent-name {
+                font-size: 3.5rem !important;
+            }
+
+            #skill-title {
+                font-size: 2rem !important;
+            }
+
+            .role-box {
+                display: flex !important;
+            }
+
+            .mobile-skill-title {
+                display: block !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -28,11 +86,22 @@
         </div>
     </nav>
 
-    <div
-        style="background-color: #0f1923; width: 100%; position: relative; overflow: visible; min-height: 80vh; display: flex; flex-direction: column; z-index: 10;">
+    <div style="background-color: #0f1923; width: 100%; position: relative; overflow: visible; min-height: 80vh; display: flex; flex-direction: column; z-index: 10;"
+        id="hero-container">
+
+        <!-- Agent Artworks Wrapper -->
+        <div id="agent-art-wrapper"
+            style="position: absolute; right: 0; bottom: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; overflow: visible;">
+            <img id="agent-bg-text" src="agent/AGENT/ASTRA/Astra_Background_Text.webp"
+                style="position: absolute; right: 0; bottom: 0; height: 100%; z-index: 1; opacity: 0.2; object-fit: cover; pointer-events: none;">
+            <img id="agent-role" src="agent/AGENT/ASTRA/role.png"
+                style="position: absolute; right: 50%; top: 50%; transform: translate(50%, -50%); height: 400px; z-index: 1; opacity: 0.05; object-fit: contain; pointer-events: none; filter: invert(1);">
+            <img id="agent-full-art" src="agent/AGENT/ASTRA/Astra_Artwork_Full.webp"
+                style="position: absolute; right: 10%; bottom: -5%; height: 110%; z-index: 2; object-fit: contain; pointer-events: none;">
+        </div>
 
         <!-- Top Half (Dark Blue) -->
-        <div style="padding: 3rem 5rem; flex: 1;">
+        <div id="char-top" style="padding: 3rem 5rem; flex: 1;">
             <img src="Riot-Games-Logo.png" alt="Riot"
                 style="height: 30px; margin-bottom: 2rem; position: relative; z-index: 3;">
             <h1 id="agent-name"
@@ -44,10 +113,23 @@
                 memberdayakan
                 kekuatan semesta untuk mereka ulang medan tempur sesuka hatinya. Dengan kendali penuh atas wujud
                 astralnya dan bakat meramal strategisnya, dia akan selalu unggul dari musuhnya.</p>
+
+            <!-- Mobile Role Box -->
+            <div class="role-box"
+                style="display: none; border: 1px solid var(--val-red); padding: 1.5rem; margin-top: 2rem; width: 150px; text-align: center; position: relative; z-index: 3; flex-direction: column; align-items: center;">
+                <img id="role-box-icon" src="agent/AGENT/ASTRA/role.png"
+                    style="width: 40px; filter: invert(1); margin-bottom: 0.5rem; opacity: 0.8;">
+                <div style="font-size: 0.8rem; color: var(--val-light-grey); margin-bottom: 0.2rem;">PERAN</div>
+                <div id="role-box-name"
+                    style="font-family: var(--font-heading); color: var(--val-red); font-size: 1.2rem;">CONTROLLER</div>
+            </div>
         </div>
 
         <!-- Bottom Half (Red) -->
-        <div style="background-color: var(--val-red); padding: 3rem 5rem; flex: 1;">
+        <div id="char-bottom" style="background-color: var(--val-red); padding: 3rem 5rem; flex: 1;">
+            <h2 class="mobile-skill-title"
+                style="display: none; font-family: var(--font-heading); font-size: 3rem; margin-bottom: 1.5rem; text-transform: uppercase; position: relative; z-index: 3; color: var(--val-white);">
+                KEMAMPUAN KHUSUS</h2>
             <div style="display: flex; gap: 1rem; margin-bottom: 2rem; position: relative; z-index: 3;">
                 <div onclick="changeSkill(0)"
                     style="cursor: pointer; width: 50px; height: 50px; border: 2px solid white; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: background-color 0.3s;"
@@ -95,6 +177,7 @@
                         bg: "agent/AGENT/ASTRA/Astra_Background_Text.webp",
                         art: "agent/AGENT/ASTRA/Astra_Artwork_Full.webp",
                         role: "agent/AGENT/ASTRA/role.png",
+                        roleName: "CONTROLLER",
                         skills: [
                             { icon: "agent/AGENT/ASTRA/1e6ad40dac4f0e475a055b96864a4d5c1eabf34e-512x512.png", title: "Gravity Well", desc: "Tempatkan Star dalam Astral Form. ACTIVATE satu Star untuk membentuk Gravity Well. Pemain di area ini akan ditarik ke pusat sebelum meledak..." },
                             { icon: "agent/AGENT/ASTRA/6c53596bfc3c04a16087fd4553b03c1449d84987-512x512.png", title: "Nova Pulse", desc: "Tempatkan Star dalam Astral Form. ACTIVATE satu Star untuk meledakkan Nova Pulse. Nova Pulse akan charge sejenak, lalu menyerang..." },
@@ -108,6 +191,7 @@
                         bg: "agent/AGENT/BRIMSTONE/Brimstone_Background_Text.webp",
                         art: "agent/AGENT/BRIMSTONE/Brimstone_Artwork_Full.webp",
                         role: "agent/AGENT/BRIMSTONE/role.png",
+                        roleName: "CONTROLLER",
                         skills: [
                             { icon: "agent/AGENT/BRIMSTONE/5325b2340045a32d919d467ce3b09c3725de73ea-126x126.png", title: "Incendiary", desc: "Tembakkan granat pembakar yang meledak menghasilkan zona api yang merusak musuh." },
                             { icon: "agent/AGENT/BRIMSTONE/8cfa836d1d19356685e42c13054f9f5bc8e9e029-128x128.png", title: "Stim Beacon", desc: "Lempar Stim Beacon yang memberi efek RapidFire kepada pemain di sekitarnya." },
@@ -121,6 +205,7 @@
                         bg: "agent/AGENT/BREACH/Breach_Background_Text.webp",
                         art: "agent/AGENT/BREACH/Breach_Artwork_Full.webp",
                         role: "agent/AGENT/BREACH/role.png",
+                        roleName: "INITIATOR",
                         skills: [
                             { icon: "agent/AGENT/BREACH/2621c00e27da47f6a57772902c7806a7bfe0eb66-256x256.png", title: "Aftershock", desc: "Tembakkan muatan fusi yang menembus tembok, memberikan damage besar kepada siapa saja yang ada di baliknya." },
                             { icon: "agent/AGENT/BREACH/58784f89733dfe25c41f8ba950c6eb4c46507d63-256x256.png", title: "Flashpoint", desc: "Tembakkan granat buta menembus tembok untuk membutakan semua musuh yang melihatnya." },
@@ -134,6 +219,7 @@
                         bg: "agent/AGENT/SOVA/Sova_Background_Text.webp",
                         art: "agent/AGENT/SOVA/Sova_Artwork_Full.webp",
                         role: "agent/AGENT/SOVA/role.png",
+                        roleName: "INITIATOR",
                         skills: [
                             { icon: "agent/AGENT/SOVA/07877d7c79546ef64338eae550ffa5649f3582b0-128x128.png", title: "Owl Drone", desc: "Terbangkan drone untuk melacak dan menandai musuh." },
                             { icon: "agent/AGENT/SOVA/7b9f078b0576e87e74b8175b0d33ac682b7a8ab3-128x128.png", title: "Shock Bolt", desc: "Tembakkan panah peledak listrik yang memantul dan melukai musuh." },
@@ -147,6 +233,7 @@
                         bg: "agent/AGENT/SAGE/Sage_Background_Text.webp",
                         art: "agent/AGENT/SAGE/Sage_Artwork_Full.webp",
                         role: "agent/AGENT/SAGE/role.png",
+                        roleName: "SENTINEL",
                         skills: [
                             { icon: "agent/AGENT/SAGE/829075fef7193503dd480947b79d78193d729d42-128x128.png", title: "Barrier Orb", desc: "Ciptakan tembok kokoh yang besar untuk memblokir jalan atau mengangkat kawan." },
                             { icon: "agent/AGENT/SAGE/90b6e1ca1a3ecd68e2a3072515d071f80bf46c1d-128x128.png", title: "Slow Orb", desc: "Lemparkan orb yang menciptakan area perlambatan bagi siapa saja yang melintasinya." },
@@ -160,6 +247,7 @@
                         bg: "agent/AGENT/JETT/Jett_Background_Text.webp",
                         art: "agent/AGENT/JETT/Jett_Artwork_Full.webp",
                         role: "agent/AGENT/JETT/role.png",
+                        roleName: "DUELIST",
                         skills: [
                             { icon: "agent/AGENT/JETT/18cb69683c16d11590eda4c5458a7025f0667895-128x128.png", title: "Cloudburst", desc: "Lempar proyektil yang melebar jadi awan pandangan semu sesaat." },
                             { icon: "agent/AGENT/JETT/8c5e94bfc817e5d35eca7692fd242404de5ac5dd-128x128.png", title: "Updraft", desc: "Melontar tinggi ke udara secara instan." },
@@ -173,6 +261,7 @@
                         bg: "agent/AGENT/CHAMBER/Chamber_Background_Text.webp",
                         art: "agent/AGENT/CHAMBER/Chamber_Artwork_Full.webp",
                         role: "agent/AGENT/CHAMBER/role.png",
+                        roleName: "SENTINEL",
                         skills: [
                             { icon: "agent/AGENT/CHAMBER/53b23071d96ffa2d27b73c5edb6ba8b0cf1dc30a-512x512.png", title: "Trademark", desc: "Pasang trap pemindai musuh. Saat musuh terlihat, trap akan aktif melambatkan area di sekitarnya." },
                             { icon: "agent/AGENT/CHAMBER/6070c2db4a22931c24ff59349664a0c666a777c3-512x512.png", title: "Headhunter", desc: "Aktifkan untuk mengeluarkan pistol berat (heavy pistol) yang mematikan." },
@@ -198,8 +287,14 @@
 
                         // Add role if element exists
                         const roleImg = document.getElementById('agent-role');
-                        if (roleImg && data.role) {
-                            roleImg.src = data.role;
+                        const roleBoxImg = document.getElementById('role-box-icon');
+                        const roleBoxName = document.getElementById('role-box-name');
+                        if (data.role) {
+                            if (roleImg) roleImg.src = data.role;
+                            if (roleBoxImg) roleBoxImg.src = data.role;
+                        }
+                        if (roleBoxName && data.roleName) {
+                            roleBoxName.innerText = data.roleName;
                         }
 
                         currentSkills = data.skills;
@@ -236,16 +331,6 @@
         </div>
 
         <!-- Role Logo -->
-        <img id="agent-role" src="agent/AGENT/ASTRA/role.png" alt="Role"
-            style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); height: 500px; opacity: 0.15; z-index: 2; filter: invert(1); pointer-events: none;">
-
-        <!-- Background Text -->
-        <img id="agent-bg-text" src="agent/AGENT/ASTRA/Astra_Background_Text.webp" alt="Agent Text"
-            style="position: absolute; right: 0; top: 0; height: 100%; width: 50%; object-fit: cover; opacity: 1; z-index: 1; pointer-events: none;">
-
-        <!-- Agent Artwork -->
-        <img id="agent-full-art" src="agent/AGENT/ASTRA/Astra_Artwork_Full.webp" alt="Agent Full Art"
-            style="position: absolute; right: 10%; bottom: -5%; height: 110%; z-index: 2; object-fit: contain; pointer-events: none;">
     </div>
 
     <section class="section">
