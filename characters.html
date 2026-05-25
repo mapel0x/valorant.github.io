@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <meta name="description" content="Meet the Agents of Valorant.">
 </head>
+
 <body>
     <nav class="navbar">
         <div class="nav-brand">
@@ -26,52 +28,271 @@
         </div>
     </nav>
 
-    <header class="hero" style="height: 40vh;">
-        <img src="agent/Early_clay.webp" alt="Agents Background" class="hero-bg">
-        <div class="hero-content">
-            <h1 class="hero-title">Agents</h1>
-            <p class="hero-subtitle">Meet the roster of the Valorant Protocol.</p>
+    <div
+        style="background-color: #0f1923; width: 100%; position: relative; overflow: visible; min-height: 80vh; display: flex; flex-direction: column; z-index: 10;">
+
+        <!-- Top Half (Dark Blue) -->
+        <div style="padding: 3rem 5rem; flex: 1;">
+            <img src="Riot-Games-Logo.png" alt="Riot"
+                style="height: 30px; margin-bottom: 2rem; position: relative; z-index: 3;">
+            <h1 id="agent-name"
+                style="font-family: var(--font-heading); font-size: 5rem; line-height: 1; margin-bottom: 1rem; color: var(--val-light-grey); text-transform: uppercase; position: relative; z-index: 3;">
+                Astra</h1>
+            <p id="agent-desc"
+                style="max-width: 500px; font-size: 1.1rem; color: #ece8e1; position: relative; z-index: 3;">Agen asal
+                Ghana, Astra,
+                memberdayakan
+                kekuatan semesta untuk mereka ulang medan tempur sesuka hatinya. Dengan kendali penuh atas wujud
+                astralnya dan bakat meramal strategisnya, dia akan selalu unggul dari musuhnya.</p>
         </div>
-    </header>
+
+        <!-- Bottom Half (Red) -->
+        <div style="background-color: var(--val-red); padding: 3rem 5rem; flex: 1;">
+            <div style="display: flex; gap: 1rem; margin-bottom: 2rem; position: relative; z-index: 3;">
+                <div onclick="changeSkill(0)"
+                    style="cursor: pointer; width: 50px; height: 50px; border: 2px solid white; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: background-color 0.3s;"
+                    onmouseover="this.style.backgroundColor='rgba(255,255,255,0.2)'"
+                    onmouseout="this.style.backgroundColor='transparent'">
+                    <img id="skill-img-0" src="agent/AGENT/ASTRA/1e6ad40dac4f0e475a055b96864a4d5c1eabf34e-512x512.png"
+                        style="width:30px; filter: brightness(0) invert(1);">
+                </div>
+                <div onclick="changeSkill(1)"
+                    style="cursor: pointer; width: 50px; height: 50px; border: 2px solid white; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: background-color 0.3s;"
+                    onmouseover="this.style.backgroundColor='rgba(255,255,255,0.2)'"
+                    onmouseout="this.style.backgroundColor='transparent'">
+                    <img id="skill-img-1" src="agent/AGENT/ASTRA/6c53596bfc3c04a16087fd4553b03c1449d84987-512x512.png"
+                        style="width:30px; filter: brightness(0) invert(1);">
+                </div>
+                <div onclick="changeSkill(2)"
+                    style="cursor: pointer; width: 50px; height: 50px; border: 2px solid white; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: background-color 0.3s;"
+                    onmouseover="this.style.backgroundColor='rgba(255,255,255,0.2)'"
+                    onmouseout="this.style.backgroundColor='transparent'">
+                    <img id="skill-img-2" src="agent/AGENT/ASTRA/fe8a6fdb673e9f5a94c3379bde8e78aa9ec7c6c1-512x512.png"
+                        style="width:30px; filter: brightness(0) invert(1);">
+                </div>
+                <div onclick="changeSkill(3)"
+                    style="cursor: pointer; width: 50px; height: 50px; border: 2px solid white; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: background-color 0.3s;"
+                    onmouseover="this.style.backgroundColor='rgba(255,255,255,0.2)'"
+                    onmouseout="this.style.backgroundColor='transparent'">
+                    <img id="skill-img-3" src="agent/AGENT/ASTRA/c68e59e5036f302959366885133e4ab4850bb650-512x512.png"
+                        style="width:30px; filter: brightness(0) invert(1);">
+                </div>
+            </div>
+            <h2 id="skill-title"
+                style="font-family: var(--font-heading); font-size: 3rem; margin-bottom: 0.5rem; text-transform: uppercase; position: relative; z-index: 3;">
+                Nova Pulse</h2>
+            <p id="skill-desc" style="max-width: 400px; font-weight: bold; position: relative; z-index: 3;">Tempatkan
+                Star dalam Astral Form. ACTIVATE
+                satu Star untuk
+                meledakkan Nova Pulse. Nova Pulse akan charge sejenak, lalu menyerang, mengguncang semua pemain di area
+                tersebut.</p>
+
+            <script>
+                const agentsData = {
+                    ASTRA: {
+                        name: "ASTRA",
+                        desc: "Agen asal Ghana, Astra, memberdayakan kekuatan semesta untuk mereka ulang medan tempur sesuka hatinya. Dengan kendali penuh atas wujud astralnya dan bakat meramal strategisnya, dia akan selalu unggul dari musuhnya.",
+                        bg: "agent/AGENT/ASTRA/Astra_Background_Text.webp",
+                        art: "agent/AGENT/ASTRA/Astra_Artwork_Full.webp",
+                        role: "agent/AGENT/ASTRA/role.png",
+                        skills: [
+                            { icon: "agent/AGENT/ASTRA/1e6ad40dac4f0e475a055b96864a4d5c1eabf34e-512x512.png", title: "Gravity Well", desc: "Tempatkan Star dalam Astral Form. ACTIVATE satu Star untuk membentuk Gravity Well. Pemain di area ini akan ditarik ke pusat sebelum meledak..." },
+                            { icon: "agent/AGENT/ASTRA/6c53596bfc3c04a16087fd4553b03c1449d84987-512x512.png", title: "Nova Pulse", desc: "Tempatkan Star dalam Astral Form. ACTIVATE satu Star untuk meledakkan Nova Pulse. Nova Pulse akan charge sejenak, lalu menyerang..." },
+                            { icon: "agent/AGENT/ASTRA/fe8a6fdb673e9f5a94c3379bde8e78aa9ec7c6c1-512x512.png", title: "Nebula / Dissipate", desc: "Tempatkan Star dalam Astral Form. ACTIVATE satu Star untuk mengubahnya menjadi Nebula (smoke)..." },
+                            { icon: "agent/AGENT/ASTRA/c68e59e5036f302959366885133e4ab4850bb650-512x512.png", title: "Cosmic Divide", desc: "ACTIVATE untuk masuk ke Astral Form. Klik kanan (Secondary Fire) lalu pilih dua lokasi untuk menempatkan tembok dimensi..." }
+                        ]
+                    },
+                    BRIMSTONE: {
+                        name: "BRIMSTONE",
+                        desc: "Bergabung dari AS, persenjataan orbital Brimstone memastikan timnya selalu unggul. Kemampuannya memberikan utilitas presisi dan aman menjadikan dia komandan yang tak tertandingi di medan tempur.",
+                        bg: "agent/AGENT/BRIMSTONE/Brimstone_Background_Text.webp",
+                        art: "agent/AGENT/BRIMSTONE/Brimstone_Artwork_Full.webp",
+                        role: "agent/AGENT/BRIMSTONE/role.png",
+                        skills: [
+                            { icon: "agent/AGENT/BRIMSTONE/5325b2340045a32d919d467ce3b09c3725de73ea-126x126.png", title: "Incendiary", desc: "Tembakkan granat pembakar yang meledak menghasilkan zona api yang merusak musuh." },
+                            { icon: "agent/AGENT/BRIMSTONE/8cfa836d1d19356685e42c13054f9f5bc8e9e029-128x128.png", title: "Stim Beacon", desc: "Lempar Stim Beacon yang memberi efek RapidFire kepada pemain di sekitarnya." },
+                            { icon: "agent/AGENT/BRIMSTONE/d7e00a4ad8a1a01b2edcb9fc1193d05e4e50248f-128x128.png", title: "Sky Smoke", desc: "Gunakan peta taktikal untuk memanggil awan asap yang mengaburkan pandangan." },
+                            { icon: "agent/AGENT/BRIMSTONE/f6c1e1c587dbfe97a4185a47326ce45c42620583-128x128.png", title: "Orbital Strike", desc: "Panggil serangan laser orbital mematikan pada area pilihan yang bertahan beberapa detik." }
+                        ]
+                    },
+                    BREACH: {
+                        name: "BREACH",
+                        desc: "Manusia bionik asal Swedia, Breach, menembakkan ledakan kinetik kuat untuk membuka jalan di medan pertempuran secara agresif.",
+                        bg: "agent/AGENT/BREACH/Breach_Background_Text.webp",
+                        art: "agent/AGENT/BREACH/Breach_Artwork_Full.webp",
+                        role: "agent/AGENT/BREACH/role.png",
+                        skills: [
+                            { icon: "agent/AGENT/BREACH/2621c00e27da47f6a57772902c7806a7bfe0eb66-256x256.png", title: "Aftershock", desc: "Tembakkan muatan fusi yang menembus tembok, memberikan damage besar kepada siapa saja yang ada di baliknya." },
+                            { icon: "agent/AGENT/BREACH/58784f89733dfe25c41f8ba950c6eb4c46507d63-256x256.png", title: "Flashpoint", desc: "Tembakkan granat buta menembus tembok untuk membutakan semua musuh yang melihatnya." },
+                            { icon: "agent/AGENT/BREACH/668ca53aca3c788f4b9ef8ad35e86979b84745db-256x256.png", title: "Fault Line", desc: "Ciptakan gempa beruntun yang menggoncang musuh di jalurnya." },
+                            { icon: "agent/AGENT/BREACH/cca58acc93956ee755ccea171a36584a402793c2-256x256.png", title: "Rolling Thunder", desc: "Kirim gelombang gempa besar berbentuk kerucut untuk menghempaskan dan mengguncang musuh." }
+                        ]
+                    },
+                    SOVA: {
+                        name: "SOVA",
+                        desc: "Lahir dari musim dingin abadi Rusia, Sova melacak, menemukan, dan melenyapkan musuh dengan akurasi kejam dan presisi tanpa ampun.",
+                        bg: "agent/AGENT/SOVA/Sova_Background_Text.webp",
+                        art: "agent/AGENT/SOVA/Sova_Artwork_Full.webp",
+                        role: "agent/AGENT/SOVA/role.png",
+                        skills: [
+                            { icon: "agent/AGENT/SOVA/07877d7c79546ef64338eae550ffa5649f3582b0-128x128.png", title: "Owl Drone", desc: "Terbangkan drone untuk melacak dan menandai musuh." },
+                            { icon: "agent/AGENT/SOVA/7b9f078b0576e87e74b8175b0d33ac682b7a8ab3-128x128.png", title: "Shock Bolt", desc: "Tembakkan panah peledak listrik yang memantul dan melukai musuh." },
+                            { icon: "agent/AGENT/SOVA/8ab5a2d03438ff0f8b2ba2d7b26c812ab6b7adbb-128x128.png", title: "Recon Bolt", desc: "Tembakkan panah sonar yang mengungkapkan lokasi musuh di sekitarnya." },
+                            { icon: "agent/AGENT/SOVA/b428e1783f98a0990b86d13872f564095442f44b-128x128.png", title: "Hunter's Fury", desc: "Tembakkan tiga ledakan energi mematikan yang menembus tembok." }
+                        ]
+                    },
+                    SAGE: {
+                        name: "SAGE",
+                        desc: "Berbasis di Tiongkok, Sage adalah pilar keamanan bagi timnya. Ia mampu membangkitkan sekutu dan menahan serangan gencar, memberikan pusat ketenangan di tengah kekacauan.",
+                        bg: "agent/AGENT/SAGE/Sage_Background_Text.webp",
+                        art: "agent/AGENT/SAGE/Sage_Artwork_Full.webp",
+                        role: "agent/AGENT/SAGE/role.png",
+                        skills: [
+                            { icon: "agent/AGENT/SAGE/829075fef7193503dd480947b79d78193d729d42-128x128.png", title: "Barrier Orb", desc: "Ciptakan tembok kokoh yang besar untuk memblokir jalan atau mengangkat kawan." },
+                            { icon: "agent/AGENT/SAGE/90b6e1ca1a3ecd68e2a3072515d071f80bf46c1d-128x128.png", title: "Slow Orb", desc: "Lemparkan orb yang menciptakan area perlambatan bagi siapa saja yang melintasinya." },
+                            { icon: "agent/AGENT/SAGE/cdc246179e160ded2788fd37ac21f10bc040ad54-128x128.png", title: "Healing Orb", desc: "Sembuhkan rekan tim atau diri sendiri hingga kesehatan penuh." },
+                            { icon: "agent/AGENT/SAGE/f2931e5af58255216179b21cce81f53eab15d6ee-128x128.png", title: "Resurrection", desc: "Gunakan kekuatan penuhmu untuk menghidupkan kembali sekutu yang telah gugur." }
+                        ]
+                    },
+                    JETT: {
+                        name: "JETT",
+                        desc: "Berasal dari Korea Selatan, gaya tempur Jett yang tangkas memungkinkannya mengambil risiko yang tak bisa dilakukan musuh. Dia berlari mengelilingi pertarungan dan menebas musuh sebelum mereka sadar.",
+                        bg: "agent/AGENT/JETT/Jett_Background_Text.webp",
+                        art: "agent/AGENT/JETT/Jett_Artwork_Full.webp",
+                        role: "agent/AGENT/JETT/role.png",
+                        skills: [
+                            { icon: "agent/AGENT/JETT/18cb69683c16d11590eda4c5458a7025f0667895-128x128.png", title: "Cloudburst", desc: "Lempar proyektil yang melebar jadi awan pandangan semu sesaat." },
+                            { icon: "agent/AGENT/JETT/8c5e94bfc817e5d35eca7692fd242404de5ac5dd-128x128.png", title: "Updraft", desc: "Melontar tinggi ke udara secara instan." },
+                            { icon: "agent/AGENT/JETT/8d8e6c956af64b241e49e3625b3cb02fcc61eb09-128x128.png", title: "Tailwind", desc: "Meluncur cepat ke arah yang dituju." },
+                            { icon: "agent/AGENT/JETT/a0c72fe005e2f87f60f38fdb440569271c51a8fb-128x128.png", title: "Blade Storm", desc: "Lengkapi diri dengan sekumpulan pisau lempar mematikan yang reset jika membunuh musuh." }
+                        ]
+                    },
+                    CHAMBER: {
+                        name: "CHAMBER",
+                        desc: "Desainer senjata asal Prancis, Chamber, mengusir penyerang dengan presisi mematikan. Ia memanfaatkan keunggulan persenjataan khususnya untuk mempertahankan area dan menghabisi target dari jauh.",
+                        bg: "agent/AGENT/CHAMBER/Chamber_Background_Text.webp",
+                        art: "agent/AGENT/CHAMBER/Chamber_Artwork_Full.webp",
+                        role: "agent/AGENT/CHAMBER/role.png",
+                        skills: [
+                            { icon: "agent/AGENT/CHAMBER/53b23071d96ffa2d27b73c5edb6ba8b0cf1dc30a-512x512.png", title: "Trademark", desc: "Pasang trap pemindai musuh. Saat musuh terlihat, trap akan aktif melambatkan area di sekitarnya." },
+                            { icon: "agent/AGENT/CHAMBER/6070c2db4a22931c24ff59349664a0c666a777c3-512x512.png", title: "Headhunter", desc: "Aktifkan untuk mengeluarkan pistol berat (heavy pistol) yang mematikan." },
+                            { icon: "agent/AGENT/CHAMBER/b2f83e29d7ff8fbc59aa568eca0ed82d30ab007f-512x512.png", title: "Rendezvous", desc: "Pasang dua jangkar teleportasi. Saat berada dalam jangkauan, aktifkan untuk teleportasi cepat ke jangkar lainnya." },
+                            { icon: "agent/AGENT/CHAMBER/d8a0105305eefcd44c6c5c823bc6638c18d3850c-512x512.png", title: "Tour De Force", desc: "Panggil senapan sniper khusus tembus dinding yang bisa membunuh musuh dengan satu tembakan." }
+                        ]
+                    }
+                };
+
+                let currentSkills = agentsData["ASTRA"].skills; // Default
+
+                function loadAgent() {
+                    const params = new URLSearchParams(window.location.search);
+                    const agentId = params.get('agent') || 'ASTRA';
+                    const data = agentsData[agentId];
+
+                    if (data) {
+                        document.title = "Valorant | " + data.name;
+                        document.getElementById('agent-name').innerText = data.name;
+                        document.getElementById('agent-desc').innerText = data.desc;
+                        document.getElementById('agent-bg-text').src = data.bg;
+                        document.getElementById('agent-full-art').src = data.art;
+
+                        // Add role if element exists
+                        const roleImg = document.getElementById('agent-role');
+                        if (roleImg && data.role) {
+                            roleImg.src = data.role;
+                        }
+
+                        currentSkills = data.skills;
+                        for (let i = 0; i < 4; i++) {
+                            if (currentSkills[i]) {
+                                document.getElementById('skill-img-' + i).src = currentSkills[i].icon;
+                            }
+                        }
+
+                        changeSkill(1); // Default to skill index 1
+                    }
+                }
+
+                function changeSkill(index) {
+                    const titleEl = document.getElementById("skill-title");
+                    const descEl = document.getElementById("skill-desc");
+
+                    titleEl.style.opacity = 0;
+                    descEl.style.opacity = 0;
+
+                    setTimeout(() => {
+                        titleEl.innerText = currentSkills[index].title;
+                        descEl.innerText = currentSkills[index].desc;
+
+                        titleEl.style.transition = "opacity 0.3s";
+                        descEl.style.transition = "opacity 0.3s";
+                        titleEl.style.opacity = 1;
+                        descEl.style.opacity = 1;
+                    }, 200);
+                }
+
+                window.onload = loadAgent;
+            </script>
+        </div>
+
+        <!-- Role Logo -->
+        <img id="agent-role" src="agent/AGENT/ASTRA/role.png" alt="Role"
+            style="position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); height: 500px; opacity: 0.15; z-index: 2; filter: invert(1); pointer-events: none;">
+
+        <!-- Background Text -->
+        <img id="agent-bg-text" src="agent/AGENT/ASTRA/Astra_Background_Text.webp" alt="Agent Text"
+            style="position: absolute; right: 0; top: 0; height: 100%; width: 50%; object-fit: cover; opacity: 1; z-index: 1; pointer-events: none;">
+
+        <!-- Agent Artwork -->
+        <img id="agent-full-art" src="agent/AGENT/ASTRA/Astra_Artwork_Full.webp" alt="Agent Full Art"
+            style="position: absolute; right: 10%; bottom: -5%; height: 110%; z-index: 2; object-fit: contain; pointer-events: none;">
+    </div>
 
     <section class="section">
         <h2 class="section-title">Select Your Agent</h2>
-        <div class="grid-3">
-            <div class="card">
-                <img src="agent/Early_clay.webp" alt="Astra">
-                <h3 class="card-title">ASTRA</h3>
-                <p>Controller - Ghana</p>
-            </div>
-            <div class="card">
-                <img src="agent/Early_clay.webp" alt="Jett">
-                <h3 class="card-title">JETT</h3>
-                <p>Duelist - South Korea</p>
-            </div>
-            <div class="card">
-                <img src="agent/Early_clay.webp" alt="Phoenix">
-                <h3 class="card-title">PHOENIX</h3>
-                <p>Duelist - United Kingdom</p>
-            </div>
-            <div class="card">
-                <img src="agent/Early_clay.webp" alt="Sage">
+        <div class="grid-3" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+            <div class="card" onclick="window.location.href='?agent=SAGE'" style="cursor: pointer;">
+                <img src="agent/AGENT/SAGE/A.Sage.webp" alt="Sage">
                 <h3 class="card-title">SAGE</h3>
-                <p>Sentinel - China</p>
+                <p>Sentinel</p>
             </div>
-            <div class="card">
-                <img src="agent/Early_clay.webp" alt="Sova">
+            <div class="card" onclick="window.location.href='?agent=SOVA'" style="cursor: pointer;">
+                <img src="agent/AGENT/SOVA/A.Sova.webp" alt="Sova">
                 <h3 class="card-title">SOVA</h3>
-                <p>Initiator - Russia</p>
+                <p>Initiator</p>
             </div>
-            <div class="card">
-                <img src="agent/Early_clay.webp" alt="Viper">
-                <h3 class="card-title">VIPER</h3>
-                <p>Controller - United States</p>
+            <div class="card" onclick="window.location.href='?agent=BRIMSTONE'" style="cursor: pointer;">
+                <img src="agent/AGENT/BRIMSTONE/A.Brimstone.webp" alt="Brimstone">
+                <h3 class="card-title">BRIMSTONE</h3>
+                <p>Controller</p>
+            </div>
+            <div class="card" onclick="window.location.href='?agent=BREACH'" style="cursor: pointer;">
+                <img src="agent/AGENT/BREACH/A.Breach.webp" alt="Breach">
+                <h3 class="card-title">BREACH</h3>
+                <p>Initiator</p>
+            </div>
+            <div class="card" onclick="window.location.href='?agent=ASTRA'" style="cursor: pointer;">
+                <img src="agent/AGENT/ASTRA/A.Astra.webp" alt="Astra">
+                <h3 class="card-title">ASTRA</h3>
+                <p>Controller</p>
+            </div>
+            <div class="card" onclick="window.location.href='?agent=JETT'" style="cursor: pointer;">
+                <img src="agent/AGENT/JETT/A.Jett.webp" alt="Jett">
+                <h3 class="card-title">JETT</h3>
+                <p>Duelist</p>
+            </div>
+            <div class="card" onclick="window.location.href='?agent=CHAMBER'" style="cursor: pointer;">
+                <img src="agent/AGENT/CHAMBER/A.Chamber.webp" alt="Chamber">
+                <h3 class="card-title">CHAMBER</h3>
+                <p>Sentinel</p>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 Riot Games, Inc. Riot Games, VALORANT, and any associated logos are trademarks, service marks, and/or registered trademarks of Riot Games, Inc.</p>
+        <p>&copy; 2026 Riot Games, Inc. Riot Games, VALORANT, and any associated logos are trademarks, service marks,
+            and/or registered trademarks of Riot Games, Inc.</p>
     </footer>
 </body>
+
 </html>
